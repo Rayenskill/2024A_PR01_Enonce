@@ -102,22 +102,22 @@ class Game:
         # TODO: Vérifiez si la touche pressée est la flèche gauche
             # TODO: Vérifiez si Pac-Man peut se déplacer à gauche sans entrer en collision
                 # TODO: Si le déplacement est possible, définissez la nouvelle direction de Pac-Man vers la gauche
-        if event.key == pygame.K_LEFT and self.check_collision == (0, 1):
-            self.pacman.set_direction((0, 1))
+        if event.key == pygame.K_LEFT and self.check_collision == (-1, 0):
+            self.pacman.set_direction((-1, 0))
         # TODO: Vérifiez si la touche pressée est la flèche vers le haut
             # TODO: Vérifiez si Pac-Man peut se déplacer vers le haut sans entrer en collision
                 # TODO: Si le déplacement est possible, définissez la nouvelle direction de Pac-Man vers le haut
-        if event.key == pygame.K_UP and self.check_collision == (1, 1):
-            self.pacman.set_direction((1, 1))
+        if event.key == pygame.K_UP and self.check_collision == (0, 1):
+            self.pacman.set_direction((0, 1))
         # TODO: Vérifiez si la touche pressée est la flèche vers le bas
             # TODO: Vérifiez si Pac-Man peut se déplacer vers le bas sans entrer en collision
                 # TODO: Si le déplacement est possible, définissez la nouvelle direction de Pac-Man vers le bas
-        if event.key == pygame.K_DOWN and self.check_collision == (0, 0):
-            self.pacman.set_direction((0, 0))        
+        if event.key == pygame.K_DOWN and self.check_collision == (0, -1):
+            self.pacman.set_direction((0, -1))        
 
     def check_collision(self, direction):
         # TODO: Extraire les coordonnées de déplacement de la direction (dx, dy)
-        dx, dy = direction 
+        dx, dy = direction
     
         # TODO: Calculer la nouvelle position de Pac-Man après le déplacement (new_x, new_y) avec la formule new_x = self.pacman.x + dx
         new_x = self.pacman.x + dx
@@ -166,9 +166,9 @@ class Game:
             # TODO: Si Pac-Man est sur une pièce spéciale, retirer cette pièce spéciale de la liste
             self.special_coins.remove((self.pacman.x, self.pacman.y))
             # TODO: Ajouter des points au score du joueur pour la pièce spéciale collectée
-            self.score.__add__(10)                  #mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+            self.score += 10
             # TODO: Activer le mode "manger" en appelant la méthode appropriée pour activer le mode "manger" des fantômes avec self.activate_eat_mode()
-            self.activate_eat_mode()                #mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+            self.activate_eat_mode()
 
     def activate_eat_mode(self):
         timer = threading.Timer(EDIBLE_GHOST_TIMER, self.deactivate_eat_mode)
