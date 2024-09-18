@@ -14,7 +14,7 @@ class End:
         pygame.display.set_caption('Résultat du Jeu')
         
         # Load background image
-        self.background_image = pygame.image.load('assets/images/game_over.jpg')
+        self.background_image = pygame.image.load('C:\\Users\\raybo\\Documents\\INF1007\\2024A_PR01_Enonce\\assets\\images\\game_over.jpg')
         self.background_image = pygame.transform.scale(self.background_image, (self.screen_width, self.screen_height))
         
         # Set up font

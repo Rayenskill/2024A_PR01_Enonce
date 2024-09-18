@@ -20,7 +20,7 @@ class PacMan:
         
     def draw(self):
         # Load the Pac-Man image
-        pacman_image = pygame.image.load('assets/images/pacman.png')
+        pacman_image = pygame.image.load('C:\\Users\\raybo\\Documents\\INF1007\\2024A_PR01_Enonce\\assets\\images\\pacman.png')
         pacman_image = pygame.transform.scale(pacman_image, (self.size, self.size))
 
         # Rotate the image based on the direction

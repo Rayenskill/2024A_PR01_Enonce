@@ -10,7 +10,7 @@ class Home:
         self.button_color = (255, 255, 0)  # Couleur jaune pour le bouton
         self.font = pygame.font.Font(None, 50)
         self.small_font = pygame.font.Font(None, 36)
-        self.background_img = pygame.image.load('assets/images/background.jpg')
+        self.background_img = pygame.image.load('C:\\Users\\raybo\\Documents\\INF1007\\2024A_PR01_Enonce\\assets\\images\\background.jpg')
         self.background = pygame.transform.scale(self.background_img, (screen_width, screen_height))
         self.button_rect = pygame.Rect(screen_width // 2 - 100, screen_height // 2 + 140, 200, 50)
 

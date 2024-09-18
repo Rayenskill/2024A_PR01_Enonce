@@ -23,10 +23,10 @@ class Game:
         self.wall_color = (0, 0, 255)
 
         # Charger les images des fantômes
-        red_ghost = pygame.transform.scale(pygame.image.load('assets/images/red.png'), GHOST_SIZE)
-        blue_ghost = pygame.transform.scale(pygame.image.load('assets/images/blue.png'), GHOST_SIZE)
-        orange_ghost = pygame.transform.scale(pygame.image.load('assets/images/orange.png'), GHOST_SIZE)
-        pink_ghost = pygame.transform.scale(pygame.image.load('assets/images/pink.png'), GHOST_SIZE)
+        red_ghost = pygame.transform.scale(pygame.image.load('C:\\Users\\raybo\\Documents\\INF1007\\2024A_PR01_Enonce\\assets\\images\\red.png'), GHOST_SIZE)
+        blue_ghost = pygame.transform.scale(pygame.image.load('C:\\Users\\raybo\\Documents\\INF1007\\2024A_PR01_Enonce\\assets\\images\\red.png'), GHOST_SIZE)
+        orange_ghost = pygame.transform.scale(pygame.image.load('C:\\Users\\raybo\\Documents\\INF1007\\2024A_PR01_Enonce\\assets\\images\\red.png'), GHOST_SIZE)
+        pink_ghost = pygame.transform.scale(pygame.image.load('C:\\Users\\raybo\\Documents\\INF1007\\2024A_PR01_Enonce\\assets\\images\\red.png'), GHOST_SIZE)
 
         # Créer les fantômes
         self.red_ghost_instance = Ghost(pos=RESET_POS1, img=red_ghost, maze=self.board, screen=screen)
@@ -88,38 +88,47 @@ class Game:
         lives_text = self.font.render("Lives: ", True, (255, 255, 255))
         self.screen.blit(lives_text, (50, 50 * 15))
 
-        pacman_image = pygame.transform.scale(pygame.image.load('assets/images/pacman.png'), (30, 30))
+        pacman_image = pygame.transform.scale(pygame.image.load('C:\\Users\\raybo\\Documents\\INF1007\\2024A_PR01_Enonce\\assets\\images\\pacman.png'), (30, 30))
         for i in range(self.pacman.lives):
             self.screen.blit(pacman_image, (150 + i * 40, 50 * 15))
 
     def handle_keypress(self, event):
-        pass
         # TODO: Vérifiez si la touche pressée est la flèche droite avec event.key == pygame.K_RIGHT
             # TODO: Vérifiez si Pac-Man peut se déplacer à droite sans entrer en collision avec self.check_collision((1, 0))
                 # TODO: Si le déplacement est possible, définissez la nouvelle direction de Pac-Man vers la droite avec self.pacman.set_direction((1, 0))
+        if event.key == pygame.K_RIGHT and self.check_collision == (1, 0):
+            self.pacman.set_direction((1, 0))
 
         # TODO: Vérifiez si la touche pressée est la flèche gauche
             # TODO: Vérifiez si Pac-Man peut se déplacer à gauche sans entrer en collision
                 # TODO: Si le déplacement est possible, définissez la nouvelle direction de Pac-Man vers la gauche
-
+        if event.key == pygame.K_LEFT and self.check_collision == (0, 1):
+            self.pacman.set_direction((0, 1))
         # TODO: Vérifiez si la touche pressée est la flèche vers le haut
             # TODO: Vérifiez si Pac-Man peut se déplacer vers le haut sans entrer en collision
                 # TODO: Si le déplacement est possible, définissez la nouvelle direction de Pac-Man vers le haut
-
+        if event.key == pygame.K_UP and self.check_collision == (1, 1):
+            self.pacman.set_direction((1, 1))
         # TODO: Vérifiez si la touche pressée est la flèche vers le bas
             # TODO: Vérifiez si Pac-Man peut se déplacer vers le bas sans entrer en collision
                 # TODO: Si le déplacement est possible, définissez la nouvelle direction de Pac-Man vers le bas
-                
+        if event.key == pygame.K_DOWN and self.check_collision == (0, 0):
+            self.pacman.set_direction((0, 0))        
 
     def check_collision(self, direction):
-        pass
         # TODO: Extraire les coordonnées de déplacement de la direction (dx, dy)
-
-        # TODO: Calculer la nouvelle position de Pac-Man après le déplacement (new_x, new_y) avec la formule new_x = self.pacman.x + dx
+        dx, dy = direction 
     
+        # TODO: Calculer la nouvelle position de Pac-Man après le déplacement (new_x, new_y) avec la formule new_x = self.pacman.x + dx
+        new_x = self.pacman.x + dx
+        new_y = self.pacman.y + dy
         # TODO: Vérifier si la nouvelle position est un chemin valide ou un mur
         # Utiliser la grille (`self.board`) pour déterminer si la case est un chemin (0) ou un mur (1). return True si c'est un chemin, False si c'est un mur.
-
+        if self.board[new_x][new_y] == 1:
+              return False
+        else:
+            return True
+        
     def update(self):
         for ghost in self.ghosts:
             ghost.draw()
