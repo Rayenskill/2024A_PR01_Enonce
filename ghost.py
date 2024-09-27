@@ -14,8 +14,8 @@ class Ghost:
         self.screen = screen
         self.death_timer = 0
         self.edible = False
-        self.edible_img = pygame.transform.scale(pygame.image.load('C:\\Users\\raybo\\Documents\\INF1007\\2024A_PR01_Enonce\\assets\\images\\red.png'), GHOST_SIZE)
-        self.dead_img = pygame.transform.scale(pygame.image.load('C:\\Users\\raybo\\Documents\\INF1007\\2024A_PR01_Enonce\\assets\\images\\red.png'), GHOST_SIZE)   # Image du fantôme quand il est mort
+        self.edible_img = pygame.transform.scale(pygame.image.load('C:\\Users\\raybo\\Documents\\INF1007\\2024A_PR01_Enonce\\assets\\images\\powerup.png'), GHOST_SIZE)
+        self.dead_img = pygame.transform.scale(pygame.image.load('C:\\Users\\raybo\\Documents\\INF1007\\2024A_PR01_Enonce\\assets\\images\\dead.png'), GHOST_SIZE)   # Image du fantôme quand il est mort
 
     def draw(self):
 

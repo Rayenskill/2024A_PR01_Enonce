@@ -76,12 +76,11 @@ class PacMan:
         self.direction = None
 
     def die(self):
-
+        
         if self.lives == 0:
             # Game over
             return True
         
         # Reduce the number of lives
         self.lives -= 1
-
         self.reset()
